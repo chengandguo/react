@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/reset.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App name="Joey" age="12"/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

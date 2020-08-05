@@ -2,14 +2,17 @@
 @import "./variables.scss";
 
 
+@function vw($width) {
+  @return $width / $design-width * 100vw;
+}
 /*
   $src: 图片路径
   $width, $height: 图片宽高
   $ratio: 图片比例，默认为2倍图
 */
 @mixin icon-bg($src, $width, $height, $ratio: 2) {
-  width: rem($width / $ratio);
-  height: rem($height / $ratio);
+  width: vw($width / $ratio);
+  height: vw($height / $ratio);
   background-image: url($src);
   background-size: 100% auto;
   background-position: center;
