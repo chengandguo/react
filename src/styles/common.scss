@@ -1,0 +1,105 @@
+/* mixins & functions */
+@import "./variables.scss";
+
+
+/*
+  $src: 图片路径
+  $width, $height: 图片宽高
+  $ratio: 图片比例，默认为2倍图
+*/
+@mixin icon-bg($src, $width, $height, $ratio: 2) {
+  width: rem($width / $ratio);
+  height: rem($height / $ratio);
+  background-image: url($src);
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+@mixin border-top {
+  position: relative;
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $line-color;
+    transform: scaleY(0.5);
+  }
+}
+
+@mixin border-bottom {
+  position: relative;
+  &::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    background-color: $line-color;
+    transform: scaleY(0.5);
+  }
+}
+
+@mixin border-left {
+  position: relative;
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: $line-color;
+    transform: scaleX(0.5);
+  }
+}
+
+@mixin border-right {
+  position: relative;
+  &::after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: $line-color;
+    transform: scaleX(0.5);
+  }
+}
+
+@mixin border-all {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 200%;
+    border: 1px solid $button-color;
+    transform: scale(0.5);
+    transform-origin: left top;
+  }
+}
+
+/* 清除浮动 */
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+// 添加点击态
+@mixin active{
+  &:active {
+    opacity: 0.8;
+  }
+}
