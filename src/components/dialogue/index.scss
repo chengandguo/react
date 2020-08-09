@@ -17,5 +17,25 @@
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: vw(6);
+    background-color: white;
+    padding: vw(16);
+    width: vw(300);
+    box-sizing: border-box;
+  }
+
+  .dialogue-btn {
+    margin-top: vw(16);
+    display: flex;
+    align-items: center;
+    div {
+      flex: 1;
+      text-align: center;
+      height: vw(30);
+      line-height: vw(30);
+    }
+
+    .dialogue-btn-confirm {
+      color: $button-color;
+    }
   }
 }

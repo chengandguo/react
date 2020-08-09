@@ -20,10 +20,25 @@ import classNames from "classnames";
 
 ## Parent Child Brother communication
 
-## global sass functions and variables
+## global sass functions and variables   --done
 
 ## create-react-app
 
 ## eslint
 
-## config polyfill
+## babel polyfill
+
+## transition and animation
+
+## Hook 
+
+## PUBLIC URL
+
+## build directory
+
+## react-router-dom/react-router difference
+
+## global component
+
+## <Redirect>
+

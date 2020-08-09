@@ -8,6 +8,7 @@ const paths = require('./paths');
 delete require.cache[require.resolve('./paths')];
 
 const NODE_ENV = process.env.NODE_ENV;
+const BUILD_ENV = process.env.BUILD_ENV;
 if (!NODE_ENV) {
   throw new Error(
     'The NODE_ENV environment variable is required but was not specified.'
@@ -15,9 +16,11 @@ if (!NODE_ENV) {
 }
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
+console.log("env:", `${paths.dotenv}`, `${paths.dotenv}.${NODE_ENV}.${BUILD_ENV}`);
 const dotenvFiles = [
   `${paths.dotenv}.${NODE_ENV}.local`,
   `${paths.dotenv}.${NODE_ENV}`,
+  `${paths.dotenv}.${NODE_ENV}.${BUILD_ENV}`,   // 修改这里，注入环境变量文件
   // Don't include `.env.local` for `test` environment
   // since normally you expect tests to produce the same
   // results for everyone
