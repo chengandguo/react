@@ -7,4 +7,8 @@ module.exports = {
       }
     }
   },
+
+  devServer: {
+    proxy: process.env.REACT_APP_PROXY,
+  },
 };
