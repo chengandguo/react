@@ -16,7 +16,7 @@ import Center from "./pages/center/index.js";
 export default function () {
   return (<Router>
     <Route path="/" exact>
-      <Home/>
+      <Home name="Meng cheng"/>
     </Route>
     <Route path="/about">
       <About/>

@@ -1,6 +1,7 @@
 ## proxy
 
 ## <React.StrictMode>
+执行了2次
 
 ## classNames
 scoped class 
@@ -43,4 +44,6 @@ import classNames from "classnames";
 ## global component
 
 ## <Redirect>
+
+## react多页面配置
 
