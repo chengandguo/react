@@ -7,7 +7,7 @@ import storage from "redux-persist/lib/storage";
 // middlewares
 import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
-import { helloSaga } from "./sagas/index.js";
+import mySaga from "./sagas/index.js";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -27,7 +27,7 @@ const store = createStore(
   // applyMiddleware(sagaMiddleware, logger),
 );
 
-sagaMiddleware.run(helloSaga);
+sagaMiddleware.run(mySaga);
 
 
 export const persistor = persistStore(store);

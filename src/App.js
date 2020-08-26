@@ -17,6 +17,8 @@ import RenderProps from "./pages/render-props/index.js";
 import PropTypesPractice from "./pages/prop-types-practice/index.js";
 import SliderPractice from "./pages/slider-practice/index.js";
 import BrotherCommunication from "./pages/brother-communication/index.js";
+import TransitionPractice from "./pages/transition-practice/index.js";
+import BestPractice from "./pages/best-practice/index.js";
 
 
 export default function () {
@@ -47,6 +49,12 @@ export default function () {
     </Route>
     <Route path="/brotherCommunication">
       <BrotherCommunication />
+    </Route>
+    <Route path="/transitionPractice">
+      <TransitionPractice />
+    </Route>
+    <Route path="/bestPractice">
+      <BestPractice />
     </Route>
   </Router>);
 }
