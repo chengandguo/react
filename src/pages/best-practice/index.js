@@ -1,5 +1,5 @@
 import React, { PureComponent, Component } from "react";
-
+import PropTypes from "prop-types";
 import "./index.scss";
 
 
@@ -15,11 +15,9 @@ class Child extends PureComponent {
     this.setState({
       count: this.state.count + 1,
     });
-    console.log(this.state.count)
   }
 
   render() {
-    console.log("child render");
     return (
       <div>
         <h1>I am child component</h1>
@@ -39,12 +37,10 @@ class Card extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps, nextState);
     return true;
   }
 
   changeTitle = () => {
-    console.log("change title");
     this.setState({
       title: "hello world"
     });
@@ -59,21 +55,37 @@ class Card extends Component {
     );
   }
 }
-class BestPractice extends PureComponent {
-  constructor(props) {
-    super(props);
+
+class Shape extends Component {
+  static propTypes = {
+    style: PropTypes.exact({
+      backgroundColor: PropTypes.string,
+      width: PropTypes.string,
+    }),
+    basic: PropTypes.oneOf(["a", "b", "c"])
   }
 
+  render () {
+    let { style } = this.props;
+    return (
+      <div className="shape-block" style={style}>
+      </div>
+    );
+  }
+}
+
+class BestPractice extends PureComponent {
   render() {
-    console.log("best practice render");
     return (
       <div className="parent">
         <div>I am parent</div>
         <Child />
         <Card />
+        <Shape basic="a"/>
       </div>
     );
   }
 }
 
 export default BestPractice;
+

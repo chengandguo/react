@@ -6,7 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import { withRouter } from "react-router";
+// import { withRouter } from "react-router";
 
 import Home from "./pages/home/index.js";
 import About from "./pages/about/index.js";

@@ -3,10 +3,6 @@ import "./index.scss";
 import { withRouter } from "react-router";
 
 class BrotherCommunication extends React.Component {
-  constructor (props) {
-    super(props);
-  }
-
   gotoAboutPage = () => {
     console.log(this.props);
     this.props.history.push({

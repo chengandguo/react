@@ -32,10 +32,10 @@ let mapStateToProps = state => {
 let mapDispatchToProps = dispatch => {
   return {
     increment: value => dispatch(increment(value)),
-    increment: value => dispatch({
-      type: "INCREMENT",
-      payload: value,
-    }),
+    // increment: value => dispatch({
+    //   type: "INCREMENT",
+    //   payload: value,
+    // }),
     decrement: value => dispatch(decrement(value)),
   }
 };
