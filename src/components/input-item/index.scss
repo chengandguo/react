@@ -1,0 +1,23 @@
+.input-item {
+  margin-bottom: 10px;
+  &-label {
+    cursor: pointer;
+  }
+
+  &-content {
+    position: relative;
+    width: 200px;
+    border: 1px solid black;
+    input {
+      padding-left: 10px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    &-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }    
+  }
+}

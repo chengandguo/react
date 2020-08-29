@@ -1,69 +1,96 @@
-import React from "react";
+import React, { useState } from "react";
 import cx from "classnames";
-
 import "./index.scss";
 
-class Center extends React.Component {
-  constructor (props) {
+class Slider extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
-      list: [{
-        value: "basics",
-        isActive: false,
-      }, {
-        value: "redux",
-        isActive: false,
-      }, {
-        value: "Saga",
-        isActive: false
-      }],
+      innerVisible: false,
+      isAddSliderClass: true,
+    };
+  }
 
-      isLogin: false,
+  componentDidUpdate (prevProps) {
+    let { visible } = this.props;
+    if(visible && !this.state.innerVisible && this.state.isAddSliderClass) {
+      this.setState({
+        innerVisible: true,
+      });
+      window.setTimeout(() => {
+        this.setState({
+          isAddSliderClass: false,
+        });
+      }, 0)
+    }
+
+    if(!visible && this.state.innerVisible && !this.state.isAddSliderClass) {
+      this.setState({
+        isAddSliderClass: true,
+      });
+
+      window.setTimeout( () => {
+        this.setState({
+          innerVisible: false,
+        });
+      }, 300);
     }
   }
 
-  addClassName (activeIndex) {
-    let newList = this.state.list.map((item,index) => 
-      index === activeIndex ? {...item, isActive: true} : {...item, isActive: false});
-    
-    this.setState({
-      list: newList
-    });
+  componentDidMount () {
   }
 
-  setLogin = () => {
-    this.setState({
-      isLogin: !this.state.isLogin,
-    });
+  render () {
+    let { innerVisible, isAddSliderClass } = this.state;
+    return innerVisible ? (
+    <div className={cx(["slider", {"slider-enter": isAddSliderClass}])}>
+      <h1>I am a slider</h1>
+      <div onClick={this.props.handleCloseEvent}>close</div>
+    </div>) : null
+  }
+}
+
+class Test extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false,
+    };
   }
 
-  renderFooter () {
-    return (
-      <div className="footer">
-        <h1>I am footer</h1>
-        <div>
-          I love you
-        </div>
-      </div>
-    );
+  componentDidUpdate () {
+  }
+
+  setVisible = () => {
+    this.setState({
+      visible: true,
+    });
   }
 
   render () {
     return (
-      <div className="about">
-        <h1 onClick={this.setLogin}>I am center page</h1>
-        {this.state.isLogin && <div>I am login</div>}
-        <ul className="fruit-list">
-          {this.state.list.map((item,index) => 
-            (<li className={cx("fruit-item", {"fruit-item-active": item.isActive})}
-              onClick={this.addClassName.bind(this, index)} 
-              key={index}>{item.value}</li>))
-          }
-        </ul>
-        {this.renderFooter()}
+      <div>
+        <h1>I am Test Component</h1>
+        <div onClick={this.setVisible}>set isShow</div>
+        {this.state.visible && <div>I am test block</div>}
       </div>
     );
   }
 }
 
-export default Center;
+
+export default function () {
+  let [visible, setVisible] = useState(false);
+
+  return (
+    <div className="center">
+      <h1>I am center page</h1>
+      <div onClick={() => setVisible(true)}>showSlider</div>
+      <Slider 
+        visible={visible}
+        handleCloseEvent={() => setVisible(false)}
+      />
+      <Test/>
+    </div>
+  );
+}

@@ -21,6 +21,17 @@ import classNames from "classnames";
 
 ## create your own ui library
 
+## Parent Child Brother communication
+Parent Child   Parent props to Child 
+Child callback to Parent
+
+Brother 
+
+Cross the Component  redux react-redux redux-actions
+
+
+## global sass functions and variables   --done
+
 ## create-react-app
 
 ## eslint

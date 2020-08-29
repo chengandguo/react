@@ -300,6 +300,7 @@ module.exports = function(webpackEnv) {
         }),
         "@": path.resolve(__dirname, "../src"),    // add an alias
         ...(modules.webpackAliases || {}),
+        '@': path.resolve(__dirname, '../src'),
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

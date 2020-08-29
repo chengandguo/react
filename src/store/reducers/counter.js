@@ -8,15 +8,15 @@ let initialState = {
 }
 
 let reducer = handleActions({
-  "INCREMENT": (state, action) => ({
+  [increment]: (state, action) => ({
     count: state.count + action.payload,
   }),
 
-  "DECREMENT": (state, action) => ({
+  [decrement]: (state, action) => ({
     count: state.count - action.payload,
   }),
-}, initialState, {
-  prefix: "COUNTER",
-});
+}, initialState);
 
 export default reducer;
+
+

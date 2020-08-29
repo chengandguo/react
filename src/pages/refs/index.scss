@@ -1,6 +1,11 @@
 .container {
-  margin-left: 10px;
   input {
     border: 1px solid black;
+  }
+
+  .rect {
+    width: 100px;
+    height: 200px;
+    background-color: gray;
   }
 }
