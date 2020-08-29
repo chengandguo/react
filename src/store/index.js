@@ -1,15 +1,18 @@
 import { createStore, applyMiddleware} from "redux";
 import reducer from "./reducers/index.js";
 
+//存储相关
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+import thunk from "redux-thunk";
+// 
 // middlewares
-import logger from "redux-logger";
-import createSagaMiddleware from "redux-saga";
-import { helloSaga } from "./sagas/index.js";
+// import logger from "redux-logger";
+// import createSagaMiddleware from "redux-saga";
+// import { helloSaga } from "./sagas/index.js";
 
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
 
 const storageConfig = {
@@ -23,11 +26,12 @@ const myPersistReducer = persistReducer(storageConfig, reducer);
 
 const store = createStore(
   myPersistReducer,
-  applyMiddleware(sagaMiddleware),
+  applyMiddleware(thunk),
+  // applyMiddleware(sagaMiddleware),
   // applyMiddleware(sagaMiddleware, logger),
 );
 
-sagaMiddleware.run(helloSaga);
+// sagaMiddleware.run(helloSaga);
 
 
 export const persistor = persistStore(store);

@@ -8,7 +8,7 @@ function Home(props) {
   console.log(props, "a");
   return (
     <div>
-      <h1>I am hofafame sabbfafabfafafafafaafffffafaf</h1>   
+      <h1>I am home page</h1>   
       <div>
         <h1>Login: {props.isLogin + ""}</h1>
         <div onClick={() => props.setLogin(true)}>change login state</div>

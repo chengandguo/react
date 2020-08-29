@@ -1,0 +1,12 @@
+.todo-btn-list {
+  margin-top: 10px;
+  display: flex;
+  .todo-btn-item {
+    margin-right: 10px;
+    user-select: none;
+    cursor: pointer;
+    &-active {
+      border-bottom: 1px solid black;
+    }
+  }
+}

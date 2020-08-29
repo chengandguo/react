@@ -21,10 +21,6 @@ import classNames from "classnames";
 
 ## create your own ui library
 
-## Parent Child Brother communication
-
-## global sass functions and variables   --done
-
 ## create-react-app
 
 ## eslint
@@ -46,4 +42,27 @@ import classNames from "classnames";
 ## <Redirect>
 
 ## react多页面配置
+
+## 样式按需引入,优化现有公司网站
+babel-plugin-component
+
+
+今天的任务
+classnames  --done
+
+redux
+
+react-redux
+
+redux-actions
+redux-promise
+
+Saga
+
+学完之后完成一个todolist的项目
+
+1.Redux-Thunk
+
+2.Redux-Saga
+
 

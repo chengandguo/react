@@ -1,0 +1,9 @@
+.fruit-list {
+  .fruit-item {
+    color: blue;
+    cursor: pointer;
+    &-active {
+      color: red;
+    }
+  }
+}

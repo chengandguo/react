@@ -1,0 +1,14 @@
+
+.todo-list {
+  margin-top: 20px;
+  .todo-item {
+    cursor: pointer;
+    &-completed {
+      text-decoration: line-through;
+    }
+  }
+
+  &-empty {
+    margin-top: 10px;
+  }
+}
