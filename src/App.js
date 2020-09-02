@@ -12,7 +12,6 @@ import Home from "./pages/home/index.js";
 import About from "./pages/about/index.js";
 import Center from "./pages/center/index.js";
 import Todos from "./pages/todos/index.js";
-import Refs from "./pages/refs/index.js";
 import Thunk  from "./pages/thunk/index.js";
 import ReduxActionsPractice from "./pages/redux-actions-practice/index.js";
 import Refs from "./pages/refs/index.js";
@@ -22,6 +21,7 @@ import SliderPractice from "./pages/slider-practice/index.js";
 import BrotherCommunication from "./pages/brother-communication/index.js";
 import TransitionPractice from "./pages/transition-practice/index.js";
 import BestPractice from "./pages/best-practice/index.js";
+
 
 
 export default function () {
