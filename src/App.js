@@ -21,7 +21,8 @@ import SliderPractice from "./pages/slider-practice/index.js";
 import BrotherCommunication from "./pages/brother-communication/index.js";
 import TransitionPractice from "./pages/transition-practice/index.js";
 import BestPractice from "./pages/best-practice/index.js";
-
+import Context from "./pages/context/index.js";
+import DebugTool from "./pages/debug-tool/index.js";
 
 
 export default function () {
@@ -67,6 +68,12 @@ export default function () {
     </Route>
     <Route exact path="/thunk">
       <Thunk/>
+    </Route>
+    <Route exact path="/context">
+      <Context/>
+    </Route>
+    <Route exact path="/debugTool">
+      <DebugTool/>
     </Route>
   </Router>);
 }

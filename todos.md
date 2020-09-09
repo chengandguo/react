@@ -57,23 +57,9 @@ Cross the Component  redux react-redux redux-actions
 ## 样式按需引入,优化现有公司网站
 babel-plugin-component
 
+## 
+debugger
 
-今天的任务
-classnames  --done
 
-redux
-
-react-redux
-
-redux-actions
-redux-promise
-
-Saga
-
-学完之后完成一个todolist的项目
-
-1.Redux-Thunk
-
-2.Redux-Saga
 
 
