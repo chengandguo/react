@@ -23,6 +23,7 @@ import TransitionPractice from "./pages/transition-practice/index.js";
 import BestPractice from "./pages/best-practice/index.js";
 import Context from "./pages/context/index.js";
 import DebugTool from "./pages/debug-tool/index.js";
+import PopupDemo from "./pages/popup-demo/index.js";
 
 
 export default function () {
@@ -74,6 +75,9 @@ export default function () {
     </Route>
     <Route exact path="/debugTool">
       <DebugTool/>
+    </Route>
+    <Route exact path="/popupDemo">
+      <PopupDemo/>
     </Route>
   </Router>);
 }
