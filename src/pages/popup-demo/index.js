@@ -7,7 +7,7 @@ class PopupDemo extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      visibility: true,
+      visibility: false,
     }
   }
 
@@ -28,7 +28,9 @@ class PopupDemo extends PureComponent {
     return (
       <div>
         <div onClick={this.show}>show</div>
-        <Popup visibility={visibility} onClose={this.onClose}/>
+        <Popup visibility={visibility}
+          title="Choose your subdistrict"
+          onClose={this.onClose}/>
       </div>
     );
   }

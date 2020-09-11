@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-
+import PropTypes from "prop-types";
 import "./index.scss";
 
 function delay (time=0) {
@@ -35,37 +35,71 @@ class Popup extends React.Component {
       this.setState({
         isAddStyle: true,
       });
-      await delay(400);
+      await delay(300);
       this.setState({
         isShow: false,
       });
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.visibility !== this.props.visibility) {
       this.watchVisibility();
     }
   }
 
+  handleMaskClose = () => {
+    let { isAllowMaskClose, onClose} = this.props;
+    if(isAllowMaskClose) {
+      onClose();
+    }
+  }
+
   render() {
     let { isAddStyle, isShow } = this.state;
-    let { place = "bottom", onClose } = this.props;
-    let contentClassName = `popup-content-${place}`;
+    let { position, 
+      isShowMask,
+      children,
+      title,
+    } = this.props;
+    let contentClassName = `popup-content-${position}-enter`;
     return (
       isShow && (<div className="popup">
-        <div className={cx("popup-mask", { "popup-mask-enter": isAddStyle })}
-          onClick={onClose}>
-        </div>
-        <div className={cx("popup-content", { [contentClassName]: isAddStyle })}>
-          <div className="popup-content-header"></div>
+        {isShowMask && (<div className={ cx("popup-mask", { "popup-mask-enter": isAddStyle }) }
+          onClick={this.handleMaskClose}>
+        </div>)}
+        <div className={ cx("popup-content", 
+          `popup-content-${position}-to`, 
+          { [contentClassName]: isAddStyle })}>
+          {
+            title && (<div className="popup-content-header">
+              <div className="popup-content-header-title">{title}</div>
+              <div className="popup-content-header-close"></div>
+            </div>)
+          }
           <div className="popup-content-body">
-
+            { children }
           </div>
         </div>
       </div>)
     );
   }
+}
+
+Popup.propTypes = {
+  visibility: PropTypes.bool,
+  title: PropTypes.string,
+  headerClassName: PropTypes.string,
+  position: PropTypes.oneOf(["top", "right", "bottom", "left"]),
+  onClose: PropTypes.func,
+  isShowMask: PropTypes.bool,
+  isAllowMaskClose:PropTypes.bool,  // 是否允许点击mask关闭
+}
+
+Popup.defaultProps = {
+  position: "bottom",
+  isShowMask: true,
+  isAllowMaskClose: true,
 }
 
 export default Popup;
