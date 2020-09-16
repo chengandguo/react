@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import Popup from "@/components/popup/index.js";
+import cx from "classnames";
 import "./index.scss";
 
 
@@ -8,6 +9,7 @@ class PopupDemo extends PureComponent {
     super(props);
     this.state = {
       visibility: false,
+      selectedFruit: "",
     }
   }
 
@@ -23,14 +25,35 @@ class PopupDemo extends PureComponent {
     });
   }
 
+  handleSelectFruit (item){
+    this.setState({
+      selectedFruit: item,
+      visibility: false,
+    });
+  }
+
+  renderTable () {
+    let list = ["apple", "banana", "coconut", "pineapple"];
+    return (
+      <ul className="fruit-list">
+        {list.map((item, index) => 
+          <li className={cx("fruit-item", {"fruit-item-active": this.state.selectedFruit === item})}
+            onClick={() => this.handleSelectFruit(item)} key={index}>{item}</li>)}
+      </ul>
+    );
+  }
+
   render () {
-    let { visibility } = this.state;
+    let { visibility, selectedFruit } = this.state;
     return (
       <div>
-        <div onClick={this.show}>show</div>
+        <div onClick={this.show}>choose fruit</div>
+        <div>selected fruit: {selectedFruit}</div>
         <Popup visibility={visibility}
-          title="Choose your subdistrict"
-          onClose={this.onClose}/>
+          title="Select your fruit"
+          onClose={this.onClose}>
+            { this.renderTable() }
+        </Popup>
       </div>
     );
   }
