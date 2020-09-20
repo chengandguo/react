@@ -1,9 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import cx from "classnames";
 import "./index.scss";
 
-class Loading extends React.PureComponent {
+class Toast extends React.PureComponent {
+  static propTypes = {
+    message: PropTypes.string.isRequired,
+    duration: PropTypes.number,
+    mask: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    duration: 3,
+    mask: true,
+  }
+
   constructor (props) {
     super(props);
     this.state = {
@@ -30,28 +42,42 @@ class Loading extends React.PureComponent {
 
   render () {
     let { isAddEnterStyle } = this.state;
+    let { message, mask } = this.props;
     return (
-      <div className={cx("loading-wrapper", {"loading-wrapper-enter": isAddEnterStyle})}>
-        <div className="loading-circle"></div>
+      <div className="toast-wrapper">
+        {mask && <div className="toast-wrapper-mask"></div>}
+        <div className={cx("toast-wrapper-content", {"toast-wrapper-content-enter": isAddEnterStyle})}>
+          {message}
+        </div>
       </div>
     );
   }
 }
 
+// function isObject (obj) {
+//   if(Object.prototype.toString(obj) === "[object Object]") {
+//     return true;
+//   }
+//   return false;
+// }
+
 let container = null,
-  loading = null;
+  toast = null;
 export default {
-  show () {
+  info (message, duration, mask) {
     if(container) return;
     container = document.createElement("div");
-    container.className = "loading-container";
+    container.className = "toast-container";
     document.body.appendChild(container);
-    loading = ReactDOM.render(<Loading/>, container);
+    toast = ReactDOM.render(<Toast {...{message, duration, mask}}/>, container);
+    window.setTimeout( () => {
+      this.hide();
+    }, duration * 1000);
   },
 
   hide () {
     if(!container) return;
-    loading.addEnterStyle();
+    toast.addEnterStyle();
     window.setTimeout( () => {
       container && ReactDOM.unmountComponentAtNode(container);
       container && document.body.removeChild(container)

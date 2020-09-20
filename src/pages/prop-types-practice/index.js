@@ -28,7 +28,6 @@ class Card extends Component {
 
 class Comment extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <h1>{this.props.name} {this.props.date}</h1>

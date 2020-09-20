@@ -21,16 +21,6 @@ import classNames from "classnames";
 
 ## create your own ui library
 
-## Parent Child Brother communication
-Parent Child   Parent props to Child 
-Child callback to Parent
-
-Brother 
-
-Cross the Component  redux react-redux redux-actions
-
-
-## global sass functions and variables   --done
 
 ## create-react-app
 
@@ -56,24 +46,17 @@ Cross the Component  redux react-redux redux-actions
 
 ## 样式按需引入,优化现有公司网站
 babel-plugin-component
+babel-plugin-import
+
+Toast
+
+练习完成这个checkbox后，
+学习一个react动画库
+
+redux相关深入学习一下
+
+react-router
 
 
-今天的任务
-classnames  --done
-
-redux
-
-react-redux
-
-redux-actions
-redux-promise
-
-Saga
-
-学完之后完成一个todolist的项目
-
-1.Redux-Thunk
-
-2.Redux-Saga
 
 

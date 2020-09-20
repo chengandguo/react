@@ -19,13 +19,9 @@ let mapActionsToProps = dispatch => ({
 });
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   switchCompleted = id => {
     let newList = this.props.list.map(item => {
-      if(item.id == id) {
+      if(item.id === id) {
         return {
           ...item,
           isCompleted: !item.isCompleted,
@@ -53,7 +49,7 @@ class TodoList extends React.Component {
       }
     });
     return (
-      newList.length == 0 ?
+      newList.length === 0 ?
       <div className="todo-list-empty">empty</div>:
       <ul className="todo-list">
         {newList.map((item, index) => 

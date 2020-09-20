@@ -15,13 +15,17 @@ import Todos from "./pages/todos/index.js";
 import Refs from "./pages/refs/index.js";
 import Thunk  from "./pages/thunk/index.js";
 import ReduxActionsPractice from "./pages/redux-actions-practice/index.js";
-import Refs from "./pages/refs/index.js";
 import RenderProps from "./pages/render-props/index.js";
 import PropTypesPractice from "./pages/prop-types-practice/index.js";
 import SliderPractice from "./pages/slider-practice/index.js";
 import BrotherCommunication from "./pages/brother-communication/index.js";
 import TransitionPractice from "./pages/transition-practice/index.js";
 import BestPractice from "./pages/best-practice/index.js";
+import BasicComponent from './pages/basic-component/index.js';
+import CheckboxDemo from './pages/checkbox-demo/index.js';
+import ContextDemo from './pages/context-demo/index.js';
+import Express from './pages/express/index.js';
+import Address from './pages/express/components/address/index.js';
 
 
 export default function () {
@@ -67,6 +71,21 @@ export default function () {
     </Route>
     <Route exact path="/thunk">
       <Thunk/>
+    </Route>
+    <Route exact path="/basicComponent">
+      <BasicComponent/>
+    </Route>
+    <Route exact path="/checkboxDemo">
+      <CheckboxDemo/>
+    </Route>
+    <Route exact path="/contextDemo">
+      <ContextDemo/>
+    </Route>
+    <Route exact path="/express">
+      <Express/>
+    </Route>
+    <Route exact path="/address">
+      <Address/>
     </Route>
   </Router>);
 }

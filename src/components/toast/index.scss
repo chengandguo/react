@@ -1,0 +1,29 @@
+.toast-container {
+  .toast-wrapper {
+    &-mask {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 999;
+    }
+    &-content {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 60px;
+      border-radius: 3px;
+      color: #fff;
+      background-color: rgba(58, 58, 58, 0.9);
+      line-height: 1.5;
+      padding: 9px 15px;
+      z-index: 1000;
+      transition: opacity 300ms;
+      &-enter {
+        opacity: 0;
+      }
+    }
+  }
+}

@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 
 // redux-saga  
 function Home(props) {
-  console.log(props, "a");
   return (
     <div>
       <h1>I am home page</h1>   
@@ -19,7 +18,6 @@ function Home(props) {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("mapStateToProps", state, ownProps);
   return {
     isLogin: state.login.isLogin,
   }

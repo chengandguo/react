@@ -7,10 +7,6 @@ import store from "./store/index.js";
 import { Provider } from "react-redux";
 
 class Todos extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render () {
     return (
       <Provider store={store}>
