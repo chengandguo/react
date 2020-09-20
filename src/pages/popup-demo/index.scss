@@ -1,0 +1,13 @@
+.fruit-list {
+  font-size: vw(14);
+  .fruit-item {
+    padding-left: vw(10);
+    height: vw(50);
+    line-height: vw(50);
+    @include border-bottom;
+  }
+
+  .fruit-item-active {
+    color: red;
+  }
+}
