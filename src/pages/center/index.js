@@ -78,7 +78,7 @@ class Test extends React.PureComponent {
   }
 }
 
-
+console.log("funk")
 export default function () {
   let [visible, setVisible] = useState(false);
 
@@ -91,6 +91,10 @@ export default function () {
         handleCloseEvent={() => setVisible(false)}
       />
       <Test/>
+
+    <div>{11}</div>
     </div>
   );
 }
+
+

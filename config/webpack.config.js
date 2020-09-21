@@ -1,5 +1,8 @@
 'use strict';
 
+// fast reresh
+// const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -385,6 +388,7 @@ module.exports = function(webpackEnv) {
                       },
                     },
                   ],
+                  // require.resolve('react-refresh/babel'),
                 ],
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -420,6 +424,7 @@ module.exports = function(webpackEnv) {
                 // show incorrect code and set breakpoints on the wrong lines.
                 sourceMaps: shouldUseSourceMap,
                 inputSourceMap: shouldUseSourceMap,
+                // plugins: [require.resolve('react-refresh/babel'),]
               },
             },
             // "postcss" loader applies autoprefixer to our CSS.
@@ -518,6 +523,7 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      // new ReactRefreshPlugin(),   // react-refresh 添加
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(

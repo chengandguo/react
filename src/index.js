@@ -1,4 +1,4 @@
-// import { hot } from 'react-hot-loader/root';
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/reset.scss';
@@ -8,7 +8,12 @@ import { Provider } from "react-redux";
 import store, { persistor } from "./store/index.js";
 import { PersistGate } from "redux-persist/lib/integration/react";
 
-// hot(App);
+// import vConsole from "vconsole";
+// if(process.env.NODE_ENV === "development") {
+//   new vConsole();
+// }
+
+hot(App);
 
 ReactDOM.render(
   <Provider store={store}>
