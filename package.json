@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@alifd/next": "^1.21.8",
     "@alife/next-field": "^0.6.10",
     "@babel/core": "7.9.0",
     "@reduxjs/toolkit": "^1.4.0",
@@ -42,6 +43,7 @@
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
     "mini-css-extract-plugin": "0.9.0",
+    "moment": "^2.29.1",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.6.4",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -50,6 +52,7 @@
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
     "prop-types": "^15.7.2",
+    "query-string": "^6.13.5",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
@@ -71,6 +74,7 @@
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "2.3.5",
     "ts-pnp": "1.1.6",
+    "universal-env": "^3.2.2",
     "url-loader": "2.3.0",
     "webpack": "4.42.0",
     "webpack-dev-server": "3.10.3",
@@ -168,7 +172,13 @@
     ],
     "plugins": [
       "react-hot-loader/babel",
-      ["import", { "libraryName": "antd-mobile", "style": "css" }]
+      [
+        "import",
+        {
+          "libraryName": "antd-mobile",
+          "style": "css"
+        }
+      ]
     ]
   }
 }

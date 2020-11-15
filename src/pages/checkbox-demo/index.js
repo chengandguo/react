@@ -23,13 +23,13 @@ class CheckboxDemo extends React.PureComponent {
   }
 
   render () {
-    return (+-
+    return (
       <div className="checkbox-demo">
         <h1>checkbox demo</h1>
         <Checkbox checked={this.state.checked} onChange={this.handleChange}>
           I agree to Lazada agreement
         </Checkbox>
-        <div class="test-block"></div>
+        <div className="test-block"></div>
         <div onClick={this.create}>create</div>
       </div>
     );

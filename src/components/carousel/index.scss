@@ -1,0 +1,14 @@
+.carousel-list {
+  height: vw(40);
+  line-height: vw(40);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: #e4e4e4;
+  .carousel-item {
+    height: vw(40);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } 
+} 

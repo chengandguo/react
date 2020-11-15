@@ -11,19 +11,20 @@ function delay (time=0) {
   });
 }
 
+let self;
 class Popup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isShow: props.visibility,
       isAddStyle: !props.visibility,
-    }
-    console.log("constructor");
+    };
+    self = this;
   }
 
   async watchVisibility() {
     let { visibility } = this.props;
-    if (visibility) {
+    if (!visibility) {
       this.setState({
         isShow: true,
       });
@@ -42,10 +43,33 @@ class Popup extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.visibility !== this.props.visibility) {
-      this.watchVisibility();
+  // UNSAFE_componentWillReceiveProps (nextProps) {
+  //   this.watchVisibility();
+  // }
+
+  static getDerivedStateFromProps (nextProps, prevState) {
+    if(nextProps.visibility !== prevState.isShow) {
+      if(nextProps.visibility) {
+        window.setTimeout( () => {
+          self.setState({
+            isAddStyle: false,
+          });
+        }, 0);
+        return {
+          isShow: true,
+        }
+      } else {
+        window.setTimeout( () => {
+          self.setState({
+            isShow: false,
+          });
+        }, 300);
+        return {
+          isAddStyle: true,
+        }
+      }
     }
+    return null;
   }
 
   handleMaskClose = () => {
@@ -56,6 +80,7 @@ class Popup extends React.Component {
   }
 
   render() {
+    console.count("render");
     let { isAddStyle, isShow } = this.state;
     let { position, 
       isShowMask,

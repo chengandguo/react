@@ -1,3 +1,16 @@
 .about-link {
   color: red;
 }
+
+.detail-notice {
+  span:nth-child(1) {
+
+  }
+
+  span:nth-child(2) {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+  }
+}

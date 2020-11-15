@@ -78,7 +78,7 @@ class Test extends React.PureComponent {
   }
 }
 
-console.log("funk")
+
 export default function () {
   let [visible, setVisible] = useState(false);
 
@@ -92,7 +92,7 @@ export default function () {
       />
       <Test/>
 
-    <div>{11}</div>
+    <div>{123334}</div>
     </div>
   );
 }

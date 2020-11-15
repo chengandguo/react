@@ -53,12 +53,6 @@ Toast
 练习完成这个checkbox后，
 学习一个react动画库
 
-redux相关深入学习一下
-
-react-router
-
-## 
-debugger
 
 
 

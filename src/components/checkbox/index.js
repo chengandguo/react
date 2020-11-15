@@ -4,30 +4,18 @@ import cx from "classnames";
 import "./index.scss";
 
 class Checkbox extends React.PureComponent {
-  constructor (props) {
-    super(props);
-    console.log(props);
-    this.state = {
-      checked: this.props.checked,
-    }
-  }
 
   handleChange = () => {
-    let { onChange } = this.props;
-    this.setState({
-      checked: !this.state.checked,
-    }, () => {
-      typeof onChange === "function" && onChange(this.state.checked);
-    });
+    let { onChange, checked } = this.props;
+    typeof onChange === "function" && onChange(!checked);
   }
 
 
   render () {
-    console.log("checkbox render", this.state.checked)
-    let { children } = this.props;
-    let { checked } = this.state;
+    console.log("checkbox render", this.props.checked)
+    let { children, className, checked } = this.props;
     return (
-      <label className="checkbox-container" onClick={this.handleChange}>
+      <label className={cx("checkbox-container", className)} onClick={this.handleChange}>
         <span className={cx("checkbox-basic", {"checkbox-checked": checked})}></span>
         <span className="checkbox-text">{children}</span>
       </label>

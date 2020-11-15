@@ -29,6 +29,10 @@ import Context from "./pages/context/index.js";
 import DebugTool from "./pages/debug-tool/index.js";
 import PopupDemo from "./pages/popup-demo/index.js";
 import Refs from "./pages/refs/index.js";
+import QueryStringDemo from "./pages/query-string-demo/index.js";
+import NoticeDemo from "./pages/notice-demo/index.js";
+import CarouselDemo from "./pages/carousel-demo/index.js";
+import NextDemo from "./pages/next-demo/index.js";
 
 
 export default function () {
@@ -98,6 +102,18 @@ export default function () {
     </Route>
     <Route exact path="/popupDemo">
       <PopupDemo/>
+    </Route>
+    <Route exact path="/queryStringDemo">
+      <QueryStringDemo/>
+    </Route>
+    <Route exact path="/noticeDemo">
+      <NoticeDemo/>
+    </Route>
+    <Route exact path="/carouselDemo">
+      <CarouselDemo/>
+    </Route>
+    <Route exact path="/nextDemo">
+      <NextDemo/>
     </Route>
   </Router>);
 }

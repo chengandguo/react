@@ -8,6 +8,9 @@ import { Provider } from "react-redux";
 import store, { persistor } from "./store/index.js";
 import { PersistGate } from "redux-persist/lib/integration/react";
 
+// 
+import '@alifd/next/dist/next.css';
+
 // import vConsole from "vconsole";
 // if(process.env.NODE_ENV === "development") {
 //   new vConsole();
