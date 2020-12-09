@@ -1,0 +1,31 @@
+@function vw($width) {
+  @return $width / $design-width / 2 * 100vw ;
+}
+
+// form
+.form {
+  margin: 0 vw(48);
+  margin-top: vw(26);
+
+  .address-tag-list {
+    margin-top: vw(26);
+    .address-tag-item {
+      margin-right: vw(38);
+    }
+  }
+}
+
+.name-tooltip {
+  position: absolute;
+  right: vw(24);
+  top: 100%;
+}
+
+.address-popup {
+  .popup-content {
+    background-color: white;
+    &-bottom-to {
+      height: 75%;
+    }
+  }
+}

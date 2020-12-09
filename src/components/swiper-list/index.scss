@@ -1,0 +1,35 @@
+@function vw($width) {
+  @return $width / $design-width / 2 * 100vw ;
+}
+
+.swiper-container {
+  position: absolute;
+  width: 100%;
+  top: vw(194);
+  bottom: 0;
+}
+
+.swiper-slide {
+  overflow-y: scroll;
+}
+
+.address-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: vw(88);
+  line-height: vw(88);
+  margin: 0 vw(24);
+  @include border-bottom;
+  font-size: vw(24);
+  color: $main-color;
+  &-icon {
+    @include icon-bg("https://laz-img-cdn.alicdn.com/tfs/TB1JZz7qjMZ7e4jSZFOXXX7epXa-20-30.png", 8, 13)
+  }
+
+  &:last-child {
+    &::after {
+      background-color: white;
+    }
+  }
+}

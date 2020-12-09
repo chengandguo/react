@@ -33,6 +33,7 @@ import QueryStringDemo from "./pages/query-string-demo/index.js";
 import NoticeDemo from "./pages/notice-demo/index.js";
 import CarouselDemo from "./pages/carousel-demo/index.js";
 import NextDemo from "./pages/next-demo/index.js";
+import TabDemo from "./pages/tab-demo/index.js";
 
 
 export default function () {
@@ -114,6 +115,9 @@ export default function () {
     </Route>
     <Route exact path="/nextDemo">
       <NextDemo/>
+    </Route>
+    <Route exact path="/tabDemo">
+      <TabDemo/>
     </Route>
   </Router>);
 }

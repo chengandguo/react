@@ -1,21 +1,16 @@
-@function vw($width) {
-  @return $width / $design-width / 2 * 100vw ;
-}
-
 .popup {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
   .popup-mask {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
     transition: opacity 300ms;
     &-enter {
       opacity: 0;
@@ -24,24 +19,18 @@
 
   .popup-content {
     position: absolute;
+    background-color: white;
     transition: all 300ms;
-    border-top-left-radius: vw(24);
-    border-top-right-radius: vw(24);
     &-header {
-      position: relative;
-      height: vw(110);
-      line-height: vw(110);
+      padding-left: vw(10);
+      height: vw(55);
+      line-height: vw(55);
       font-weight: bold;
-      font-size: vw(36);
-      text-align: center;
       @include border-bottom;
-      &-close {
-        position: absolute;
-        right: vw(32);
-        top: 50%;
-        transform: translate(0, -50%);
-        @include icon-bg("https://laz-img-cdn.alicdn.com/tfs/TB1lZbIr2zO3e4jSZFxXXaP_FXa-64-64.png", 30, 30, 1);
-      }
+    }
+
+    &-body {
+      
     }
   }
 
@@ -64,20 +53,13 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 50%;
+    height: 50%;;
   }
   .popup-content-left-to {
     left: 0;
     top: 0;
     width: 40%;
     height: 100%;
-  }
-
-  .popup-content-center-to {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
   }
 
   // 初始状态
@@ -97,8 +79,5 @@
     transform: translate3d(100%, 0, 0);
   }
 
-  .popup-content-center-enter {
-    transform: translate3d(-50%, -50%, 0) scale(0.6);
-    opacity: 0;
-  }
+
 }

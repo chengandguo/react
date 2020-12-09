@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.scss";
-import { Input, Field, Button, DatePicker, Form} from '@alifd/next';
+import { Input, Field, Form} from '@alifd/next';
 
 class NextDemo extends React.Component {
   constructor (props) {

@@ -1,0 +1,11 @@
+@function vw($width) {
+  @return $width / $design-width / 2 * 100vw ;
+}
+
+.tooltip{
+  border-radius: vw(6);
+  
+  &::after {
+
+  }
+}

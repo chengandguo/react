@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import Popup from "@/components/popup/index.js";
+import Popup from "@/components/popup";
 import cx from "classnames";
 import "./index.scss";
 

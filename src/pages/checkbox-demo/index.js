@@ -1,10 +1,9 @@
 import React from "react";
 import "./index.scss";
 import Checkbox from "@/components/checkbox/index.js";
-// import {Checkbox} from "antd-mobile";
 
 class CheckboxDemo extends React.PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       checked: true,
@@ -15,17 +14,17 @@ class CheckboxDemo extends React.PureComponent {
     console.log(this.state);
   }
 
-  handleChange= value => {
+  handleChange = value => {
     console.log(value)
-   this.setState({
-    checked: value,
-   }); 
+    this.setState({
+      checked: value,
+    });
   }
 
-  render () {
+  render() {
     return (
-      <div className="checkbox-demo">
-        <h1>checkbox demo</h1>
+      <div className="checkbox-demo abc">
+        <h1 id="checkbox-title">checkbox demo</h1>
         <Checkbox checked={this.state.checked} onChange={this.handleChange}>
           I agree to Lazada agreement
         </Checkbox>

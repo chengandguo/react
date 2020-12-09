@@ -10,9 +10,9 @@
   $width, $height: 图片宽高
   $ratio: 图片比例，默认为2倍图
 */
-@mixin icon-bg($src, $width, $height, $ratio: 2) {
-  width: vw($width / $ratio);
-  height: vw($height / $ratio);
+@mixin icon-bg($src, $width, $height, $ratio: 1) {
+  width: vw($width * $ratio);
+  height: vw($height * $ratio);
   background-image: url($src);
   background-size: 100% auto;
   background-position: center;
