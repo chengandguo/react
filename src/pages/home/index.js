@@ -3,6 +3,7 @@ import "./index.scss";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+
 // redux-saga  
 function Home(props) {
   window.onload = () => {

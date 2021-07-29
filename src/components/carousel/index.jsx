@@ -56,12 +56,12 @@ class Carousel extends PureComponent {
       let pathIndex = count % FIRST_PATH.length;
       this.setState({
         first: {
-          value: this.state.first.value || this.props.dataSource[0],
+          value: this.state.first.value,
           translateY: FIRST_PATH[pathIndex],
           isRemoveAnimation: false,
         },
         second: {
-          value: this.state.second.value || this.props.dataSource[1],
+          value: this.state.second.value,
           translateY: SECOND_PATH[pathIndex],
           isRemoveAnimation: false,
         },
@@ -79,9 +79,10 @@ class Carousel extends PureComponent {
     if (Math.abs(target.translateY - yEnd) < EPSILON) {
       this.setState({
         [key]: {
+          ...target,
           translateY: yStart,
           isRemoveAnimation: true,
-          value: this.props.dataSource[(count + 2) % this.props.dataSource.length]
+          // value: this.props.dataSource[(count + 2) % this.props.dataSource.length]
         }
       });
     }
