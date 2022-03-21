@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./demo.css"/>
+</head>
+<body>
+  <div>
+    pattern mode
+    
+  </div>
+
+  <div class="ruler">
+
+  </div>
+
+  <svg width="300" height="200" style="background-color: #e6e6e6;">
+    <defs>
+      <pattern id="rect-pattern">
+        <rect width="10" height="10" fill="red"/>
+      </pattern>
+
+      <pattern id="Pattern" x="0" y="0" width="0.2" height="0.2">
+        <!-- <rect x="0" y="0" width="20" height="20" fill="skyblue"/>
+         -->
+         <rect width="10" height="10" fill="blue"/>
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="300" height="300" fill="url(#Pattern)"/>
+  </svg>
+  <input type="range" id="position" min="0" max="50"/>
+</body>
+</html>
+
+

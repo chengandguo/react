@@ -5,6 +5,11 @@
 @function vw($width) {
   @return $width / $design-width * 100vw;
 }
+
+@function vw1($width) {
+  @return $width / 750 * 100vw;
+}
+
 /*
   $src: 图片路径
   $width, $height: 图片宽高

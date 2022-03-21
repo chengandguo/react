@@ -6,3 +6,10 @@ export default {
     return false;
   }
 }
+
+
+export const sleep = time => new Promise(resolve => {
+  window.setTimeout( () => {
+    resolve();
+  }, time);
+});

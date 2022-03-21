@@ -8,14 +8,26 @@ import {
 
 import Home from "./pages/home/index.js";
 import FontSize from "./pages/font-size/index.js";
-// import About from "./pages/about/index.js";
-// import Center from "./pages/center/index.js";
+import About from "./pages/about/index.js";
+import PixiDemo from "./pages/pixi-demo/index.js";
+import LottieDemo from "./pages/lottie-demo/index.js";
+import MembershipDemo from "./pages/membership-demo/index.js";
+import LottieSnowDemo from "./pages/lottie-snow-demo/index.js";
+import SvgDemo from "./pages/svg-demo/index.js";
+import SvgPathDemo from "./pages/svg-path-demo/index.js";
+import SvgMatrixDemo from "./pages/svg-matrix-demo/index.js";
+import BoxShadowDemo from "./pages/box-shadow-demo/index.js";
+import ConfettiDemo from "./pages/confetti-demo/index.js";
+import ThreeDCanvas from "./pages/3d-canvas/index.js";
+import BodySwiperDemo from "./pages/body-swiper-demo/index.js";
+
+import Center from "./pages/center/index.js";
 // import Todos from "./pages/todos/index.js";
 // import Thunk  from "./pages/thunk/index.js";
-// import ReduxActionsPractice from "./pages/redux-actions-practice/index.js";
+import ReduxActionsPractice from "./pages/redux-actions-practice/index.js";
 // import RenderProps from "./pages/render-props/index.js";
 // import PropTypesPractice from "./pages/prop-types-practice/index.js";
-// import SliderPractice from "./pages/slider-practice/index.js";
+import SliderPractice from "./pages/slider-practice/index.js";
 // import BrotherCommunication from "./pages/brother-communication/index.js";
 // import TransitionPractice from "./pages/transition-practice/index.js";
 // import BestPractice from "./pages/best-practice/index.js";
@@ -27,19 +39,74 @@ import FontSize from "./pages/font-size/index.js";
 // import Context from "./pages/context/index.js";
 // import DebugTool from "./pages/debug-tool/index.js";
 // import PopupDemo from "./pages/popup-demo/index.js";
-// import Refs from "./pages/refs/index.js";
+import Refs from "./pages/refs/index.js";
 // import QueryStringDemo from "./pages/query-string-demo/index.js";
 // import NoticeDemo from "./pages/notice-demo/index.js";
-// import CarouselDemo from "./pages/carousel-demo/index.js";
+import CarouselDemo from "./pages/carousel-demo/index.js";
 // import NextDemo from "./pages/next-demo/index.js";
-// import TabDemo from "./pages/tab-demo/index.js";
+import TabDemo from "./pages/tab-demo/index.js";
+
 export default function () {
   return (<Router>
     <Route path="/" exact>
       <Home name="Meng cheng" />
     </Route>
+    <Route path="/center">
+      <Center />
+    </Route>
     <Route path="/font-size" exact>
-      <FontSize/>
+      <FontSize />
+    </Route>
+    <Route path="/about" exact>
+      <About />
+    </Route>
+    <Route path="/pixi-demo" exact>
+      <PixiDemo />
+    </Route>
+    <Route path="/lottie-demo" exact>
+      <LottieDemo />
+    </Route>
+    <Route path="/svg-demo" exact>
+      <SvgDemo />
+    </Route>
+    <Route path="/svg-path-demo" exact>
+      <SvgPathDemo />
+    </Route>
+    <Route path="/svg-matrix-demo" exact>
+      <SvgMatrixDemo />
+    </Route>
+    <Route path="/box-shadow-demo" exact>
+      <BoxShadowDemo />
+    </Route>
+    <Route path="/lottie-snow-demo" exact>
+      <LottieSnowDemo />
+    </Route>
+    <Route path="/confetti-demo" exact>
+      <ConfettiDemo />
+    </Route>
+    <Route exact path="/refs">
+      <Refs />
+    </Route>
+    <Route exact path="/membership-demo">
+      <MembershipDemo />
+    </Route>
+    <Route path="/reduxActionsPractice">
+      <ReduxActionsPractice />
+    </Route>
+    <Route exact path="/tabDemo">
+      <TabDemo />
+    </Route>
+    <Route path="/sliderPractice">
+      <SliderPractice />
+    </Route>
+    <Route path="/carouselDemo">
+      <CarouselDemo />
+    </Route>
+    <Route path="/3d-canvas">
+      <ThreeDCanvas/>
+    </Route>
+    <Route path="/body-swiper-demo">
+      <BodySwiperDemo/>
     </Route>
   </Router>);
 }
@@ -52,9 +119,9 @@ export default function () {
 //     <Route path="/about">
 //       <About />
 //     </Route>
-//     <Route path="/center">
-//       <Center />
-//     </Route>
+    // <Route path="/center">
+    //   <Center />
+    // </Route>
 //     <Route path="/reduxActionsPractice">
 //       <ReduxActionsPractice />
 //     </Route>
@@ -67,9 +134,9 @@ export default function () {
 //     <Route path="/propTypesPractice">
 //       <PropTypesPractice />
 //     </Route>
-//     <Route path="/sliderPractice">
-//       <SliderPractice />
-//     </Route>
+    // <Route path="/sliderPractice">
+    //   <SliderPractice />
+    // </Route>
 //     <Route path="/brotherCommunication">
 //       <BrotherCommunication />
 //     </Route>
@@ -82,9 +149,9 @@ export default function () {
 //     <Route exact path="/todos">
 //       <Todos/>
 //     </Route>
-//     <Route exact path="/refs">
-//       <Refs/>
-//     </Route>
+    // <Route exact path="/refs">
+    //   <Refs/>
+    // </Route>
 //     <Route exact path="/thunk">
 //       <Thunk/>
 //     </Route>

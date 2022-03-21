@@ -6,25 +6,17 @@ import { connect } from "react-redux";
 
 // redux-saga  
 function Home(props) {
-  window.onload = () => {
-    document.addEventListener("click", e => {
-      console.log(e.target.href)
-      e.preventDefault()
-    });
-  }
-
   return (
     <div>
       <h1>I am home page</h1>   
       <a href="https://www.baidu.com">go baidu</a>
       <div>
         <h1>Login: {props.isLogin + ""}</h1>
-        <div onClick={() => props.setLogin(true)}>change login state</div>
+        <div onClick={() => props.setLogin(!props.isLogin)}>change login state</div>
       </div>
       <Link to="about" className="about-link">to about</Link>
       <div className="detail-notice">
         <span>I love you</span>
-        <span></span>
       </div>
     </div>
   );
@@ -42,7 +34,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       type: "login/setIsLogin",
       payload: isLogin,
     }),
-
   }
 }
 
@@ -229,3 +220,53 @@ export default connect(
 //   return ret;
 // }
 // console.log(flatten1(o));
+
+
+// const path = `M15.6822 15.1445 
+// L13.4118 21.2928 
+// C13.1643 21.9631 12.2556 22.0586 11.8742 21.4544
+
+// L8.37512 15.9125
+// L1.82618 15.6532
+// C1.11223 15.6249 0.740607 14.7903 1.19732 14.2408
+// L5.3867 9.20044
+
+// L3.60961 2.89188
+// C3.41587 2.20414 4.09485 1.59278 4.75858 1.85734
+// L10.8468 4.28412
+// L16.2975 0.644557
+// C16.8917 0.247779 17.6829 0.704607 17.6364 1.4176
+// L17.2098 7.95778L22.3556 12.017
+// C22.9165 12.4595 22.7266 13.3532 22.0341 13.5293
+// L15.6822 15.1445`;
+
+// function parseSvg (path) {
+//   let result = [];
+//   let str = "";
+//   const NOTATION_MAP = {
+//     M: "this.moveTo(",
+//     L: "this.lineTo(",
+//     C: "this.curveTo(",
+//   }
+//   const keys = Object.keys(NOTATION_MAP);
+//   for(let i=0; i<path.length; ++i) {
+//     if(keys.includes(path[i])) {
+//       if(i !== 0 ) {
+//         str += ");";;
+//         result.push(str)
+//       }
+//       str = "";
+//       str +=  NOTATION_MAP[path[i]];
+//     }
+
+//     if(!isNaN(Number(path[i])) || path[i] === ".") {
+//       str += path[i];
+//     }
+//     if(path[i] === " ") {
+//       str += ",";
+//     }
+//   }
+//   return result.join("");
+// }
+
+// console.log(parseSvg(path));

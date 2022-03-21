@@ -1,0 +1,53 @@
+$width: vw(20);
+
+.box-shadow-container {
+  position: relative;
+  margin-left: vw(30);
+  margin-top: vw(40);
+  display: inline-block;
+  // box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.15);
+  // box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+  .shadow-top {
+    width: 100%;
+    height: $width;
+    // background-color: blue;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  }
+  .box-shadow-wrapper {
+    position: relative;
+    display: flex;
+    .box-shadow-left {
+      position: absolute;
+      left: vw(-20);
+      width: $width;
+      height: 100%;
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    }
+  
+    .box-shadow-right {
+      position: absolute;
+      right: vw(-20);
+      width: $width;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    }
+  }
+
+
+  .shadow-bottom {
+    width: 100%;
+    height: $width;
+    // background-color: blue;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  }
+
+  .box-shadow-left-top {
+    position: absolute;
+    width: $width;
+    height: $width;
+    background-color: blue;
+    background: linear-gradient(to left bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+    left: vw(-20);
+    bottom: vw(0);
+  }
+}

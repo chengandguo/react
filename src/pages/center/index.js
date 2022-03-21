@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Scroll, List } from "@ali/infinite-ui";
 import cx from "classnames";
+import { sleep } from "../../utils/utils";
 import "./index.scss";
 
 class Slider extends React.Component {
@@ -78,6 +80,56 @@ class Test extends React.PureComponent {
   }
 }
 
+let count = 0
+
+async function mockRequest() {
+  if (count >= 5) {
+    return []
+  }
+  await sleep(100000)
+  count++
+  return [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+  ]
+}
+
+function ScrollComponent () {
+  const [data, setData] = useState([])
+  const [hasMore, setHasMore] = useState(true)
+  async function loadMore() {
+    const append = await mockRequest()
+    setData(val => [...val, ...append])
+    setHasMore(append.length > 0)
+  }
+
+  return (
+    <>
+      <List>
+        {data.map((item, index) => (
+          <List.Item key={index}>{item}</List.Item>
+        ))}
+      </List>
+      <Scroll loadMore={loadMore} hasMore={hasMore} />
+    </>
+  )
+}
+
 
 export default function () {
   let [visible, setVisible] = useState(false);
@@ -91,8 +143,7 @@ export default function () {
         handleCloseEvent={() => setVisible(false)}
       />
       <Test/>
-
-    <div>{123334}</div>
+      <ScrollComponent></ScrollComponent>
     </div>
   );
 }

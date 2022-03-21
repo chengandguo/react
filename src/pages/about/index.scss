@@ -1,0 +1,14 @@
+.about {
+  font-size: 16px;
+}
+
+.sprite {
+  width: vw(100);
+  height: vw(100);
+  background-image: url("./css_sprites-min.png");
+  background-size: 1001px 676px;
+  background-repeat: no-repeat;
+  background-position-x: -777px;
+  background-position-y: -260px;
+  border: 1px solid blue;
+}

@@ -1,0 +1,34 @@
+.container {
+  margin-left: 10px;
+  .submit-btn {
+    position: relative;
+    width: vw(200);
+    height: vw(40);
+    line-height: vw(40);
+    color: "#111";
+    text-align: center;
+    .rect {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  .cancel-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: vw(10) vw(20);
+    border: 1px solid #111;
+  }
+
+  .confirm-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: vw(10) vw(20);
+    @include border-all;
+    &::after {
+      border-color: #111;
+    }
+  }
+}

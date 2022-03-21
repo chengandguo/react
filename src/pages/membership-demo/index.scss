@@ -1,0 +1,30 @@
+.confetti-box {
+  font-size: 16px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.my-box {
+  position: absolute;
+  left: 100px;
+  top: 200px;
+  transform-origin: center center;
+  width: 16px;
+  height: 5px;
+  background-color: blue;
+  // div:nth-child(1) {
+  //   width: 100px;
+  //   height: 50px;
+  //   // width: 10px;
+  //   // height: 5px;
+  //   background-color: blue;
+  // }
+  // div:nth-child(2) {
+  //   width: 100px;
+  //   height: 50px;
+  //   background-color: red;
+  // }
+}

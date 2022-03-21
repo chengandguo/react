@@ -1,0 +1,110 @@
+
+// test case 1
+<div className="container">
+  <ul className="order-list">
+    <li className="order-item"></li>
+  </ul>
+</div>
+
+// test case 2
+<div className="container">
+  <ul className="order-list">
+    <li className="order-item"></li>
+  </ul>
+
+  <ul className="fruit-list">
+    {a && <li className="fruit-item"></li>}
+  </ul>
+</div>
+
+// test case 3
+<ul className="address">
+  {this.state.list.map(item =>
+    <li className={cx({ "active": item === this.currentAddress })}
+      key={item}
+      onClick={() => this.handleClick(item)}>
+      {item}
+    </li>)}
+</ul>
+
+test case 4
+<div className="complete-profile-btn">
+  {this.showEmStyle ? (
+    <Button
+      data-spm={'continue'}
+      className={isChecked ? '' : 'login-invalid'}
+      onClick={this.handleSubmit}
+      style={{ backgroundColor: '#006699' }}
+    >
+      {intl.formatMessage({
+        id: 'member_signup.form.mobile.continue_btn',
+        defaultMessage: 'CONTINUE',
+      })}
+    </Button>
+  ) : (
+    <Button data-spm={'signup'} className={isChecked ? '' : 'login-invalid'} onClick={this.handleSubmit}>
+      {intl.formatMessage({
+        id: 'common.member_form.signup',
+        defaultMessage: 'SIGN UP',
+      })}
+    </Button>
+  )}
+</div>
+
+test case 5
+
+<div className={classNames('set-pin-container', { 'keyboard-active': keyboardActive })}>
+  <div className="set-pin-tips-wrapper">
+    <img
+      className="set-pin-tips-icon"
+      src="//laz-img-cdn.alicdn.com/tfs/TB19q0cLQL0gK0jSZFAXXcA9pXa-112-112.png"
+    />
+    <div className="set-pin-tips-right">
+      <p className="set-pin-tips">{Language.CONTINUOUS_DIGITS_TIPS}</p>
+      <p className="set-pin-tips">{Language.IDENTICAL_DIGITS_TIPS}</p>
+    </div>
+  </div>
+  {advisorType === 'CHANGE_PAYMENT_PIN' && (
+    <div className="set-pin-input-item top-password">
+      <p className="set-pin-input-item-title">{Language.OLD_PIN_TITLE}</p>
+      <PasswordBox
+        showError={oldPwdShowError}
+        errorMsg={oldPwdErrorMsg}
+        setValue={this.setOldPwd}
+        pwdValue={oldPassword}
+        handleFocus={this.handleFocus}
+        handleBlur={this.handleBlur}
+      />
+    </div>
+  )}
+  <div className="set-pin-input-item top-password">
+    <p className="set-pin-input-item-title">{Language.NEW_PIN_TITLE}</p>
+    <PasswordBox
+      showError={topShowError}
+      errorMsg={topErrorMsg}
+      setValue={this.setPwdTop}
+      pwdValue={topPassword}
+      handleFocus={this.handleFocus}
+      handleBlur={this.handleBlur}
+    />
+  </div>
+  <div className="set-pin-input-item">
+    <p className="set-pin-input-item-title">{Language.CONFIRM_PIN_TITLE}</p>
+    <PasswordBox
+      showError={bottomShowError}
+      errorMsg={bottomErrorMsg}
+      setValue={this.setPwdBottom}
+      pwdValue={bottomPassword}
+      handleFocus={this.handleFocus}
+      handleBlur={this.handleBlur}
+    />
+  </div>
+  {advisorType === 'CHANGE_PAYMENT_PIN' && (
+    <p className="set-pin-forgot-btn" onClick={this.handleClick}>
+      {Language.FORGOT_PIN_BUTTON}
+    </p>
+  )}
+  <Button className="set-pin-button" onClick={this.setPin} disabled={disableSetPin}>
+    {Language.FOOT_BUTTON}
+  </Button>
+</div>

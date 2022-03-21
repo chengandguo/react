@@ -1,0 +1,18 @@
+.container {
+  font-size: 16px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .wrapper {
+    width: 50vw;
+    height: 50vw;
+    background-color: #f9f9f9;
+  }
+  .operation-list {
+    div {
+      padding: 8px;
+    }
+  }
+}
