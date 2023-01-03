@@ -19,7 +19,11 @@ import SvgMatrixDemo from "./pages/svg-matrix-demo/index.js";
 import BoxShadowDemo from "./pages/box-shadow-demo/index.js";
 import ConfettiDemo from "./pages/confetti-demo/index.js";
 import ThreeDCanvas from "./pages/3d-canvas/index.js";
+import ThreeDCanvasRect from "./pages/3d-canvas-rect/index.js";
+import ThreeDCanvasCube from "./pages/3d-canvas-cube/index.js";
 import BodySwiperDemo from "./pages/body-swiper-demo/index.js";
+import TransitionDemo from "./pages/transition-demo/index.js";
+import CanvasSlider from "./pages/canvas-slider/index.js";
 
 import Center from "./pages/center/index.js";
 // import Todos from "./pages/todos/index.js";
@@ -41,10 +45,12 @@ import SliderPractice from "./pages/slider-practice/index.js";
 // import PopupDemo from "./pages/popup-demo/index.js";
 import Refs from "./pages/refs/index.js";
 // import QueryStringDemo from "./pages/query-string-demo/index.js";
-// import NoticeDemo from "./pages/notice-demo/index.js";
+import NoticeDemo from "./pages/notice-demo/index.js";
 import CarouselDemo from "./pages/carousel-demo/index.js";
 // import NextDemo from "./pages/next-demo/index.js";
 import TabDemo from "./pages/tab-demo/index.js";
+import SpringDemo from "./pages/spring-demo/index.js";
+import GestureDemo from "./pages/gesture-demo/index.js";
 
 export default function () {
   return (<Router>
@@ -105,8 +111,29 @@ export default function () {
     <Route path="/3d-canvas">
       <ThreeDCanvas/>
     </Route>
+    <Route path="/3d-canvas-rect">
+      <ThreeDCanvasRect/>
+    </Route>
+    <Route path="/3d-canvas-cube">
+      <ThreeDCanvasCube/>
+    </Route>
     <Route path="/body-swiper-demo">
       <BodySwiperDemo/>
+    </Route>
+    <Route exact path="/noticeDemo">
+      <NoticeDemo/>
+    </Route>
+    <Route exact path="/transitionDemo">
+      <TransitionDemo/>
+    </Route>
+    <Route exact path="/canvasSlider">
+      <CanvasSlider/>
+    </Route>
+    <Route exact path="/springDemo">
+      <SpringDemo/>
+    </Route>
+    <Route exact path="/gestureDemo">
+      <GestureDemo/>
     </Route>
   </Router>);
 }

@@ -1,0 +1,56 @@
+
+$grid-width: 50px;
+
+@mixin ruler {
+  background: linear-gradient(to right, transparent $grid-width - 1, #8BC34A $grid-width),
+    linear-gradient(to bottom, transparent $grid-width - 1, #8BC34A $grid-width);
+  background-size: $grid-width $grid-width;
+  background-repeat: repeat;
+  z-index: -1;
+}
+
+
+.stage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  @include ruler;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.fade-enter-active {
+  transition: all 300ms ease-out;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-leave-from {
+
+}
+
+.fade-leave-active {
+  transition: all 300ms ease-in;
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.toggle-btn {
+  width: 200px;
+  height: 100px;
+  margin-bottom: 30px;
+  border: 1px solid blue;
+}
+
+
+

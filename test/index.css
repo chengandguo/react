@@ -1,0 +1,7 @@
+:root {
+  --button-color: blue;
+}
+
+.wrapper {
+  /* background-color:  var(--button-color, red); */
+}

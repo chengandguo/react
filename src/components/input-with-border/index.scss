@@ -1,0 +1,87 @@
+.input-with-border {
+  position: relative;
+  .input-label {
+    margin-bottom: 21px;
+    font-size: 32px;
+    line-height: 40px;
+    color: #595F6D;
+  }
+
+  .input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    border-radius: 12px;
+    background-color: #F1F1F1;
+    padding-left: 24px;
+    padding-right: 24px;
+    border: 1px solid #F1F1F1;
+    .input-wrapper-left {
+      flex: 1;
+      display: flex;
+      height: 100%;
+      .input-prefix {
+        height: 100%;
+        margin-right: 24px;
+        color: $main-color;
+        font-size: 30px;
+        line-height: 90px;
+      }
+      .input-text {
+        flex: 1;
+        width: 100%;
+        padding-right: 24px;
+        font-size: 32px;
+        line-height: 90px;
+        color: $main-color;
+        outline: none;
+        border: none;
+        background: transparent;
+        box-sizing: border-box;
+        &::placeholder {
+          font-size: 30px;
+          color: #858B9C;
+          letter-spacing: initial;
+        }
+        &:disabled {
+          background-color: transparent;
+          color: $main-color;
+          opacity: 1;
+        }  
+      }
+    }
+
+    .input-wrapper-password {
+      margin-left: 24px;
+    }
+  }
+
+  .input-wrapper-active {
+    border: 1px solid #1E71FF;
+  }
+
+  .input-wrapper-error {
+    background-color: #FCE7E7;
+    border: 1px solid #E61414;
+  }
+
+  .input-error {
+    position: absolute;
+    bottom: -48px;
+    font-size: 24px;
+    line-height: 30px;
+    height: 30px;
+    color: $error-color;
+  }
+}
+
+.input-text-security {
+  -webkit-text-security: disc;
+  text-security: disc;
+}
+
+.input-text-security-none {
+  -webkit-text-security: none;
+  text-security: disc;
+}

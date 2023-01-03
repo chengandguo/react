@@ -7,14 +7,14 @@ class NextDemo extends React.Component {
     this.state = {
       contentTopHeight: 0,
       left: 0,
-      overflowY: "hidden",
+      // overflowY: "hidden",
     }
   }
 
   componentDidMount () {
     console.log(this.containerRef.scrollHeight);
     this.init();
-    this.handleScroll ();
+    // this.handleScroll ();
   }
 
   handleScroll () {
@@ -36,8 +36,6 @@ class NextDemo extends React.Component {
     })
   }
 
-
-
   init () {
     this.setState({
       contentTopHeight: this.contentTopRef.clientHeight,
@@ -51,7 +49,7 @@ class NextDemo extends React.Component {
   }
 
   handleSwiperItemScroll = e => {
-    const scrollTop = e.target.scrollTop;
+    // const scrollTop = e.target.scrollTop;
     // e.target.scrollTop = 0;
   }
 
@@ -75,9 +73,9 @@ class NextDemo extends React.Component {
           <ul className="swiper-list" style={{transform: `translateX(${left})`}}>
             <li className="swiper-item" style={{"overflowY": overflowY}}
               onTouchMove={this.handleTouchMove}
-              onScroll={this.handleSwiperItemScroll}
+              // onScroll={this.handleSwiperItemScroll}
               >
-              {new Array(200).fill(1).map((item, index) => (<div key={index}>{index}</div>))}
+              {new Array(100).fill(1).map((item, index) => (<div key={index}>{index}</div>))}
             </li>
             <li className="swiper-item" style={{"overflowY": overflowY}}>
               {new Array(200).fill(1).map((item, index) => (<div key={index}>{index}</div>))}

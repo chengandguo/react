@@ -3,7 +3,7 @@ import "./index.scss";
 
 
 class RefPractice extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       // text: "hello world"
@@ -11,9 +11,16 @@ class RefPractice extends React.Component {
     }
   }
 
-  render () {
+  renderSalute() {
+    return (<>
+      <div className="abc">
+        Nice to meet you
+      </div>
+    </>);
+  }
+
+  render() {
     const { text } = this.state;
-    console.log(text)
     return (
       <div>
         <div>one month warranty</div>
@@ -21,11 +28,13 @@ class RefPractice extends React.Component {
           <text x="0"
             y="9"
             id="text-size"
-            fontSize="9"  
+            fontSize="9"
             dominantBaseline="baseline">
             {text}
           </text>
         </svg>
+
+        {this.renderSalute()}
       </div>
     );
   }

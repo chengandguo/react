@@ -10,3 +10,9 @@
   line-height: 1; 
   vertical-align: middle;
 }
+
+.abc {
+  --padding: 100px;
+  width: calc(100vw - var(--padding));
+  background-color: blue;
+}

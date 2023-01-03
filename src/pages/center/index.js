@@ -1,151 +1,76 @@
-import React, { useState } from "react";
-import { Scroll, List } from "@ali/infinite-ui";
-import cx from "classnames";
-import { sleep } from "../../utils/utils";
 import "./index.scss";
 
-class Slider extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      innerVisible: false,
-      isAddSliderClass: true,
-    };
-  }
+import React, { useState, useCallback } from 'react';
+import classnames from 'classnames';
+// you should import `lodash` as a whole module
+import lodash from 'lodash';
+import axios from 'axios';
 
-  componentDidUpdate (prevProps) {
-    let { visible } = this.props;
-    if(visible && !this.state.innerVisible && this.state.isAddSliderClass) {
-      this.setState({
-        innerVisible: true,
-      });
-      window.setTimeout(() => {
-        this.setState({
-          isAddSliderClass: false,
-        });
-      }, 0)
-    }
+const ITEMS_API_URL = 'https://example.com/api/items';
+const DEBOUNCE_DELAY = 500;
 
-    if(!visible && this.state.innerVisible && !this.state.isAddSliderClass) {
-      this.setState({
-        isAddSliderClass: true,
-      });
+// the exported component can be either a function or a class
 
-      window.setTimeout( () => {
-        this.setState({
-          innerVisible: false,
-        });
-      }, 300);
-    }
-  }
 
-  componentDidMount () {
-  }
+export default function Autocomplete(props) {
+  const { onSelectItem } = props;
+  const [ value, setValue ] = useState("");
+  const [ list, setList ] = useState([]);
+  const [ isLoading, setIsLoading ] = useState(false);
 
-  render () {
-    let { innerVisible, isAddSliderClass } = this.state;
-    return innerVisible ? (
-    <div className={cx(["slider", {"slider-enter": isAddSliderClass}])}>
-      <h1>I am a slider</h1>
-      <div onClick={this.props.handleCloseEvent}>close</div>
-    </div>) : null
-  }
-}
-
-class Test extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-    };
-  }
-
-  componentDidUpdate () {
-  }
-
-  setVisible = () => {
-    this.setState({
-      visible: true,
+  const queryListRequest = (q) => {
+    const params = { q };
+    setIsLoading(true);
+    axios.get(ITEMS_API_URL, { params }).then(res => {
+      if(Array.isArray(res)) {
+        setList(res);
+      } else {
+        setList([]);
+      }
+    }).catch( error => {
+      setList([]);
+    }).finally( () => {
+      setIsLoading(false);
     });
+  };
+  
+  const queryListRequestDebounce = useCallback(lodash.debounce(queryListRequest, DEBOUNCE_DELAY), [])
+
+  const handleInputChange = async (e) => {
+    const value = e?.target?.value;
+    setValue(value);
+    queryListRequestDebounce(value);
   }
 
-  render () {
-    return (
-      <div>
-        <h1>I am Test Component</h1>
-        <div onClick={this.setVisible}>set isShow</div>
-        {this.state.visible && <div>I am test block</div>}
+  const handleSelectItem = (item) => {
+    console.log(item);
+    typeof onSelectItem === "function" && onSelectItem(item);
+  }
+
+  return (
+    <div className="wrapper">
+      <div className={classnames("control", {"isLoading": isLoading})}>
+        <input type="text" className="input" value={value} onChange={handleInputChange}/>
       </div>
-    );
-  }
-}
-
-let count = 0
-
-async function mockRequest() {
-  if (count >= 5) {
-    return []
-  }
-  await sleep(100000)
-  count++
-  return [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-  ]
-}
-
-function ScrollComponent () {
-  const [data, setData] = useState([])
-  const [hasMore, setHasMore] = useState(true)
-  async function loadMore() {
-    const append = await mockRequest()
-    setData(val => [...val, ...append])
-    setHasMore(append.length > 0)
-  }
-
-  return (
-    <>
-      <List>
-        {data.map((item, index) => (
-          <List.Item key={index}>{item}</List.Item>
-        ))}
-      </List>
-      <Scroll loadMore={loadMore} hasMore={hasMore} />
-    </>
-  )
-}
-
-
-export default function () {
-  let [visible, setVisible] = useState(false);
-
-  return (
-    <div className="center">
-      <h1>I am center page</h1>
-      <div onClick={() => setVisible(true)}>showSlider</div>
-      <Slider 
-        visible={visible}
-        handleCloseEvent={() => setVisible(false)}
-      />
-      <Test/>
-      <ScrollComponent></ScrollComponent>
+      {list.length > 0 && <div className="list is-hoverable">
+        {
+          list.map((item, index) => <a className="list-item" key={index} onClick={() => handleSelectItem(item)}>{item}</a>)
+        }
+      </div>}
     </div>
   );
 }
 
 
+  // const queryListRequest = (q) => {
+  //   const params = { q };
+  //   setIsLoading(true);
+  //   console.count();
+  //   return new Promise((resolve) => {
+  //     window.setTimeout( () => {
+  //       resolve(["a", "b", "c", undefined]);
+  //       setList(["a", "b", "c"]);
+  //       setIsLoading(false)
+  //     }, 1000);
+  //   });
+  // };

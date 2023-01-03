@@ -1,0 +1,25 @@
+.bottom-popup {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 500px;
+  background-color: #2196f3;
+}
+
+.top-popup {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 400px;
+  background-color: #eaeaea;
+}
+
+.popup-content {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}

@@ -1,0 +1,102 @@
+import "./index.scss";
+
+import React, { useState } from "react";
+
+
+// const MyTabsComponent = (props) => {
+//   const { children=[] } = props;
+
+//   if(Array.isArray(children) && !children.length) {
+//     console.warn("You may miss a children parameters");
+//   }
+
+//   const getChildrenData = () => {
+//     let activeContent = null;
+//     const list = [];
+//     for(let i = 0; i<children.length; ++i) {
+//       const item = children[i];
+//       const title = item?.props?.title;
+//       if(!title) continue;
+//       const child = { 
+//         title: title, 
+//         children: item?.props?.children, 
+//         selected: false
+//       };
+
+//       list.push(child);
+//     }
+//     if(list.length > 0) {
+//       list[0].selected = true;
+//       activeContent = list[0].children;
+//     }
+//     return {
+//       list,
+//       activeContent,
+//     }
+//   };
+
+//   const { list, activeContent } = getChildrenData();
+
+//   const [tabList, setTabList] = useState(list);
+//   const [content, setContent ] = useState(activeContent)
+
+//   const handleChangeTab = (activeIndex) => {
+//     let content = null;
+//     const newTabList = tabList.map((item, index) => {
+//       if(index === activeIndex) {
+//         item.selected = true;
+//         content = item.children;
+//       } else {
+//         item.selected = false;
+//       }
+//       return item;
+//     });
+
+//     setTabList(newTabList);
+//     setContent(content)
+//   };
+
+//   const renderTabs = () => {
+//     return tabList.map((item, index) => (
+//       <button key={index} 
+//         className={item.selected ? "btn-active": 'btn'}
+//         disabled={item.selected}
+//         onClick={() => handleChangeTab(index)}>{item.title}</button>
+//     )
+//   )};
+
+//   return <div className="tabs">
+//       {renderTabs()}
+//       {content && <div className="view">
+//         {content}
+//       </div>}
+//   </div>;
+// };
+
+
+// export default function () {
+//   return (<MyTabsComponent>
+//     <div title={"Section title 1"}>Content of section 1</div>
+//     <div title={"Section title 2"}>Content of section 2</div>
+//   </MyTabsComponent>);
+// }
+// export default function () {
+//   return (<MyTabsComponent>
+//     <div title={""}>Content of section 1</div>
+//     <div title={"Section title 2"}>Content of section 2</div>
+//   </MyTabsComponent>);
+// }
+
+
+
+/**
+ * <div class="tabs">
+        <button class="btn-active">Section title 1</button>
+        <button class="btn">Section title 2</button>
+        <div class="view">
+            Content of section 1
+        </div>
+    </div>
+ */
+
+

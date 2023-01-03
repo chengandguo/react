@@ -19,20 +19,20 @@
     position: relative;
     overflow-x: hidden;
     width: 100vw;
-    height: 100vh;
+    // height: 100vh;
     background: green;
   }
   .swiper-list {
     position: relative;
     display: flex;
-    height: 100%;
+    // height: 100%;
     transition: all 300ms;
     .swiper-item {
       flex-shrink: 0;
       position: relative;
       width: 100vw;
-      height: 100%;
-      overflow-y: scroll;
+      // height: 100%;
+      // overflow-y: scroll;
       &:nth-child(1) {
         background-color: #ffc107
       }

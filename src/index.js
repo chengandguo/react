@@ -11,10 +11,10 @@ import { PersistGate } from "redux-persist/lib/integration/react";
 // 
 import '@alifd/next/dist/next.css';
 
-// import vConsole from "vconsole";
-// if(process.env.NODE_ENV === "development") {
-//   new vConsole();
-// }
+import vConsole from "vconsole";
+if(process.env.NODE_ENV === "development") {
+  // new vConsole();
+}
 
 hot(App);
 

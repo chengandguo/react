@@ -1,0 +1,120 @@
+.i-sheet {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 998;
+  &-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 250ms;
+  }
+  &-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60%;
+    width: 100%;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    background-color: white;
+    transform: translateY(100%);
+    transition: transform ease-in-out 250ms;
+    .i-sheet-header {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      -webkit-user-select: none;
+      .i-sheet-header-title {
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 42px;
+        color: #111111;
+      }
+      .i-sheet-header-close {
+        display: flex;
+        position: absolute;
+        top: 2px;
+        right: 0;
+        padding: 24px;
+        
+        svg {
+          border-radius: 100px;
+          &:active {
+            background-color: rgba(0, 0, 0, 0.05);
+          }
+        }
+        .i-sheet-header-close-icon {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+
+    .i-sheet-content {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 92px;
+      bottom: 132px;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      &-bottom {
+        bottom: 0;
+      }
+    }
+
+    .i-sheet-button-list {
+      position: absolute;
+      left: 0;
+      right: 0;
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-top: 18px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      box-sizing: border-box;
+      &-iphonex {
+        bottom: 62px;
+      }
+      .i-sheet-button-item {
+        width: 342px;
+        height: 78px;
+        border-radius: 39px;
+        font-size: 32px;
+        line-height: 78px;
+        text-align: center;
+      }
+      .i-sheet-button-cancel {
+        color: #fe4960;
+        @include border-all;
+        background-color: white;
+        &::after {
+          border-color: #fe4960;
+          border-radius: 78px;
+        }
+      }
+
+      .i-sheet-button-confirm {
+        color: white;
+        background-image: linear-gradient(90deg, #ff933f 0%, #f93782 69%, #f93782 100%);
+      }
+
+      .i-sheet-button-single {
+        width: 702px;
+      }
+    }
+  }
+}

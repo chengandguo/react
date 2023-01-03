@@ -17,6 +17,8 @@ const COLOR_LIST = ["#2196f3", "#e91e63", "#ff5722", "#ff9800", "#009688"];
   confetti.destroy();
 */
 
+const PERSPECTIVE = 4000;
+
 class Confetti {
   constructor(props) {
     this.container = props.container || document.createElement("div");
@@ -61,21 +63,23 @@ class Confetti {
     for(let i=0; i<this.quantity; ++i) {
       const initialX = this.canvas.width * Math.random();
       const initialY = -Math.random() * 100 - 50;
+      const initialZ = PERSPECTIVE  - i * (PERSPECTIVE / this.quantity);
       const initialVx = Math.random() * 2 - 2;
-      const initialVy = 10 * Math.random();
+      const initialVy = 5 + 5 * Math.random();
       const item = {
         count: 0,
-        width: 10 + 10 * Math.random(),
-        height: 5 + 10 * Math.random(),
+        width: 20 + 20 / 100 * i * Math.random(),
+        height: 10 + 10 / 100 * i * Math.random(),
         initialX,
         initialY,
         x: initialX,
         y: initialY,
-        rotation: 40 * Math.random(), 
+        rotation: 180 * Math.random(), 
         ay: 0.005,
         ax: 0,
         initialVx,
         initialVy, 
+        initialZ,
         vx: initialVx,
         vy: initialVy,
         vr: 0.05 + Math.random() * 0.1,
@@ -93,6 +97,7 @@ class Confetti {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     for(let rect of this.list) {
       this.ctx.save();
+      this.ctx.globalAlpha = 1 - rect.initialZ / PERSPECTIVE;
       this.ctx.fillStyle = rect.fillStyle;
       this.ctx.translate(rect.x, rect.y);
       this.ctx.rotate(rect.rotation * Math.PI / 180);
@@ -135,7 +140,7 @@ class ConfettiDemo extends React.Component {
     this.confetti = new Confetti({
       container: this.confettiWrapperRef.current,
       ratio: 2,
-      quantity: 200,
+      quantity: 300,
     });
     this.confetti.play();
   }

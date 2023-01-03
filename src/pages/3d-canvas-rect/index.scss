@@ -1,0 +1,43 @@
+
+$grid-width: 50px;
+
+@mixin ruler {
+  background: linear-gradient(to right, transparent $grid-width - 1, #8BC34A $grid-width),
+    linear-gradient(to bottom, transparent $grid-width - 1, #8BC34A $grid-width);
+  background-size: $grid-width $grid-width;
+  background-repeat: repeat;
+  z-index: -1;
+}
+
+
+.sphere-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  @include ruler;
+  canvas {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.box {
+  position: relative;
+  left: 100px;
+  top: 200px;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  color: white;
+}
+

@@ -2,16 +2,16 @@
   @return $width / $design-width / 2 * 100vw ;
 }
 
-.swiper-container {
-  position: absolute;
-  width: 100%;
-  top: vw(194);
-  bottom: 0;
-}
+// .swiper-container {
+//   position: absolute;
+//   width: 100%;
+//   top: vw(194);
+//   bottom: 0;
+// }
 
-.swiper-slide {
-  overflow-y: scroll;
-}
+// .swiper-slide {
+//   overflow-y: scroll;
+// }
 
 .address-item {
   display: flex;

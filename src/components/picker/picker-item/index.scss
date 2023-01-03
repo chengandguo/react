@@ -1,0 +1,96 @@
+.i-picker-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-user-select: none;
+  .i-picker-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    transition-timing-function: cubic-bezier(0,1.02,0,1);
+    font-size: 26px;
+    .i-picker-list-horizontal {
+      display: flex;
+      &::-webkit-scrollbar {
+        display: none; 
+      }
+  
+      .i-picker-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45PX;
+        height: 45PX;
+        flex-shrink: 0;
+        text-align: center;
+      }    
+    }
+  
+    .i-picker-list-vertical {
+      .i-picker-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 45PX;
+        flex-shrink: 0;
+        // @include border-bottom;
+        &::after {
+          background-color: #333;
+        }
+      } 
+      &::-webkit-scrollbar {
+        display: none; 
+      }
+    }
+  }
+
+  // mask
+  .i-picker-item-mask {
+    position: absolute;
+    left: -2px;
+    top: 0;
+    right: -2px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    &-vertical {
+      &-top {
+        flex: 1;
+        flex-grow: 1;
+        background: linear-gradient(180deg,rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4))!important;
+        background: linear-gradient(to bottom,rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4))!important;
+      }
+
+      &-middle {
+        width: 100%!important;
+        height: 45PX;
+        background-color: rgba(120, 120, 128, 0.3);
+      }
+
+      &-bottom {
+        flex: 1;
+        flex-grow: 1;
+        background: linear-gradient(0, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4))!important;
+      }
+    }
+
+    &-horizontal {
+      flex-direction: row;
+      &-top {
+        flex: 1;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+      }
+      &-middle {
+        width: 45PX;
+      }
+      &-bottom {
+        flex: 1;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.7));
+      }
+    }
+  }
+}

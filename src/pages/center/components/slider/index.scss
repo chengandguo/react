@@ -1,0 +1,11 @@
+.slider-track {
+  width: 200px;
+  height: 20px;
+  background-color: grey;
+  .slider-block {
+    width: 0%;
+    background-color: blue;
+    height: 100%;
+    transition: all 300ms;
+  }
+}

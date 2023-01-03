@@ -1,0 +1,18 @@
+Q: Tell me a project that you are proud of ?
+
+A: As you know, Lazada severs for 6 countries in south east Asia.
+So there are different languages in each country.
+Here we don't use specific text in our project, instead we use 
+an object with a key and defaultMessage to represent the text.
+
+The workflow is extract, upload, translation, and compile the final 
+language kit to our project.
+
+For extract step, I develop a babel & webpack plugin to make the work automated.
+
+The first step is to split the articles to N segments. and then count each segments.
+
+Now we get the most possible words combination of each language.
+
+Now give a specific sentence， we use the same method to split the language.
+

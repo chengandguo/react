@@ -1,0 +1,29 @@
+.block {
+  background-color: blue;
+}
+
+
+
+.swiper-container {
+  width: 100%;
+  height: 200px;
+  .swiper-list {
+    display: flex;
+    height: 100%;
+    .swiper-item {
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 100%;
+      height: 100%;
+      &:nth-child(1) {
+        background-color: #8bc34a;
+      }
+      &:nth-child(2) {
+        background-color: #ff9800;
+      }
+      &:nth-child(3) {
+        background-color: #ff5722;
+      }
+    }
+  }
+}

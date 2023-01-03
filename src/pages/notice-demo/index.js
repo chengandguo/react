@@ -1,54 +1,53 @@
 import React from "react";
-import Notice from "@/components/notice/index.js";
+import ReactDOM from 'react-dom';
+import "./index.scss";
+
+let bottomNode = document.createElement('div');
+bottomNode.className = 'i-bottom-container';
+document.body.appendChild(bottomNode);
+
+let topNode = document.createElement('div');
+topNode.className = 'i-top-container';
+document.body.appendChild(topNode);
+class Popup extends React.Component {
+  handleTouchStart = e => {
+
+  }
+
+  handleTouchMove = e => {
+    const { id } = this.props;
+    console.log(id);
+  }
+
+  handleTouchEnd = e => {
+
+  }
+
+  render () {
+    const { children, height, backgroundColor, id } = this.props;
+    let node = <div  style={{height: `${height}px`, backgroundColor}}
+        className="bottom-popup"
+        onTouchStart={this.handleTouchStart}
+        onTouchMove={this.handleTouchMove}
+        onTouchEnd={this.handleTouchEnd}
+      > {children}</div>
+    let container = id === "top" ? topNode : bottomNode;
+    return ReactDOM.createPortal(node, container);
+  }
+}
+
 
 class NoticeDemo extends React.PureComponent {
   render () {
     return (
-      <div>
-        <h1>
-          I am notice demo
-        </h1>
-        <Notice lines={2}
-          text="Didn't know what time it was and the lights were low
-          I leaned back on my radio
-          Some cat was layin' down some get it on rock 'n' roll, he said
-          Then the loud sound did seem to fade
-          Came back like a slow voice on a wave of phase haze
-          That weren't no D.J. that was hazy cosmic jive"
-          image="https://laz-img-cdn.alicdn.com/tfs/TB1xCV6YRr0gK0jSZFnXXbRRXXa-52-52.png"
-          />
-
-        <Notice lines={2}
-          text="Didn't know what time "
-          image="https://laz-img-cdn.alicdn.com/tfs/TB1xCV6YRr0gK0jSZFnXXbRRXXa-52-52.png"
-          />
-
-        <Notice lines={2}
-          text="Didn't know what time it was and the lights were low
-          I leaned back "
-          image="https://laz-img-cdn.alicdn.com/tfs/TB1xCV6YRr0gK0jSZFnXXbRRXXa-52-52.png"
-          />
-
-        <Notice lines={2}
-          text="寂寞围绕着电视 垂死坚持 在两点半消失 多希望有人来陪我 度过末日
-          空虚敲打着意志
-          彷佛这时间已静止"
-          image="https://laz-img-cdn.alicdn.com/tfs/TB1xCV6YRr0gK0jSZFnXXbRRXXa-52-52.png"
-          />
-
-        <Notice lines={1}
-          text="寂寞围绕着电视 垂死坚持"
-          image="https://laz-img-cdn.alicdn.com/tfs/TB1xCV6YRr0gK0jSZFnXXbRRXXa-52-52.png"
-          />
-
-        <Notice lines={2}
-          text="Didn't know what time it was and the lights were low
-          I leaned back "
-          image="https://laz-img-cdn.alicdn.com/tfs/TB1xCV6YRr0gK0jSZFnXXbRRXXa-52-52.png"
-          />
-
-        <div>Here is another text</div>
-      </div>
+      <>
+        <Popup height={500} backgroundColor="blue" id="bottom"/>
+        <Popup height={400} backgroundColor="rgb(255, 152, 0, 0.6)" id="top">
+          <div className="popup-content" onTouchStart={this.handleTouchStart}
+          onTouchMove={this.handleTouchMove}
+          onTouchEnd={this.handleTouchEnd}></div>
+        </Popup>
+      </>
     );
   }
 }

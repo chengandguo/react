@@ -125,6 +125,7 @@ module.exports = function(webpackEnv) {
           loader: require.resolve(preProcessor),
           options: {
             sourceMap: true,
+            implementation: require("sass")
           },
         }
       );
